@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>
+            Rushi's Car Price Precdiction
+        </title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    </head>
+    <body>
+        <div style="text-align: center;">
+            <img style="height:120px;width:180px;" src="{{url_for('static', filename='/images/car.png')}}" align="middle" />
+        
+            <h2>
+                Rushi's AI based Car Price Precdiction
+            </h2>
+            <form action="predict" method="post">
+                <input name="KM" type="number" placeholder="Enter Kilometers driven" min="1" max="100000" required; style="width: 200px;"/>
+                <br><br>
+                <input name="age" type="number" placeholder="Enter age of car" min="1" max="30" required; style="width: 200px;"/>
+                <br><br>
+                <input name="op" type="number" placeholder="Enter original price" min="50000" max="9000000" required; style="width: 200px;"/>
+                <br><br>
+                <select name="fuel_type" required; style="width: 200px; text-align: center;">
+                    <option value="" disabled selected hidden>Select Fuel Type</option>  
+                    <option value="Petrol">Petrol </option>  
+                    <option value="Diesel">Diesel </option>
+                    <option value="CNG">CNG</option>
+                </select>
+                <br><br>
+
+                <select name="transmission" required; style="width: 200px; text-align: center;">
+                    <option value="" disabled selected hidden>Select Transmission</option>  
+                    <option value="Automatic">Automatic </option>  
+                    <option value="Manual">Manual </option>
+                </select>
+                <br><br>
+
+                <button>Predict Price </button>
+                 <br><br>
+                 {{prediction_value}}
+            </form>
+
+        </div>
+    </body>
+</html>
