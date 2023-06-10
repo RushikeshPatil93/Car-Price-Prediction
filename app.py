@@ -4,6 +4,7 @@ import pickle
 
 app=Flask(__name__)
 
+
 #route
 
 @app.route('/')
@@ -33,10 +34,11 @@ def predict_price():
    
     
     data=[np.array([kms,oprice,age,fuel[0],fuel[1],transmission])]
-    #model = pickle.load(open('D:/Web development/flask new/models/lr_model.pkl', 'rb'))
-    model = pickle.load(open('model.pkl','rb'))
+    model = pickle.load(open('models/lr_model.pkl', 'rb'))
+
+    #model = pickle.load(open('model.pkl', 'rb'))
+
    
-    #{{url_for('models', filename='/lr_model.pkl', 'rb')}}")
 
     result=np.round(model.predict(data))    
     msg="Predicted car price is Rs. "+str(result[0])
