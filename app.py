@@ -42,6 +42,6 @@ def predict_price():
 
 
 if __name__=="__main__":
-    app.run(debug=False)
+    app.run()
     
     
